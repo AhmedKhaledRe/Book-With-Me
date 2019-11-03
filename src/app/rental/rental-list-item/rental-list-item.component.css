@@ -1,0 +1,36 @@
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+
+/* SINGLE CARD STYLES*/
+
+.bwm-card {
+    border: none;
+    margin-bottom: 25px;
+}
+
+.bwm-card .card-block {
+    padding-top: 8px;
+}
+
+.bwm-card .card-block .card-subtitle {
+    margin: 0;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.bwm-card .card-block .card-title {
+    font-size: 19px;
+    margin: 3px 0;
+    color: #484848;
+}
+
+.bwm-card .card-block .card-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #7e7e7e;
+    margin-bottom: 0;
+}

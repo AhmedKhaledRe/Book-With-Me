@@ -16,6 +16,11 @@
     font-weight: 500;
 }
 
+.navbar .navbar-brand img {
+    margin-top: 15px;
+    height: 20px;
+}
+
 .navbar .nav-item {
     font-size: 14px;
 }
@@ -32,4 +37,13 @@
     border-color: #f44336 !important;
     color: #f44336 !important;
     box-shadow: none;
+}
+
+.navbar .dropdown-item {
+    font-size: 14px;
+}
+
+.navbar .dropdown-item:active,
+.navbar .dropdown-item:focus {
+    background-color: #f44336;
 }

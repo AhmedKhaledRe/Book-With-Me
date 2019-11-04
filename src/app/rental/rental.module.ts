@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from "@angular/common";
+import { CommonModule, UpperCasePipe } from "@angular/common";
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { NgPipesModule} from 'ngx-pipes';
 
 import { RentalComponent } from '../rental/rental.component';
 import { RentalListComponent } from '../rental/rental-list/rental-list.component';
@@ -8,7 +10,7 @@ import { RentalListItemComponent } from '../rental/rental-list-item/rental-list-
 
 import { RentalService } from "../rental/shared/rental.service";
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
-
+import { UppercasePipe } from '../common/pipes/uppercase.pipe';
 
 const routes: Routes = [
   { path: 'rentals',
@@ -17,22 +19,16 @@ const routes: Routes = [
      {path: '' , component: RentalListComponent},
      {path: ':rentalId' , component: RentalDetailComponent}
     ]
-   }  //{ path: 'path3', component: Name3Component },
-  //{ path: 'path4', component: Name4Component },
-  //{ path: '**', component: PageNotFoundComponent },
-
-  //{ path: 'path/:routeParam', component: MyComponent },
-  //{ path: 'staticPath', component: ... },
-  //{ path: '**', component: ... },
-  //{ path: 'oldPath', redirectTo: '/staticPath' },
-  //{ path: ..., component: ..., data: { message: 'Custom' }
+   }
 ];
 
 @NgModule({
-  declarations : [ RentalComponent,RentalListComponent, RentalListItemComponent, RentalDetailComponent],
+  declarations : [ RentalComponent,RentalListComponent, RentalListItemComponent, RentalDetailComponent ,UppercasePipe],
   imports : [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule,
+    NgPipesModule
   ],
   providers : [RentalService]
 })

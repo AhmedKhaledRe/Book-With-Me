@@ -12,16 +12,6 @@ import { CommonModule } from "@angular/common";
 
 const routes: Routes = [
   { path: '', redirectTo: '/rentals' ,pathMatch: 'full'}
-  //{ path: 'temp', component: TempComponent },
-  //{ path: 'path3', component: Name3Component },
-  //{ path: 'path4', component: Name4Component },
-  //{ path: '**', component: PageNotFoundComponent },
-
-  //{ path: 'path/:routeParam', component: MyComponent },
-  //{ path: 'staticPath', component: ... },
-  //{ path: '**', component: ... },
-  //{ path: 'oldPath', redirectTo: '/staticPath' },
-  //{ path: ..., component: ..., data: { message: 'Custom' }
 ];
 
 export class FeatureRoutingModule {}

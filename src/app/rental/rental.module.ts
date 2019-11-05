@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, UpperCasePipe } from "@angular/common";
+import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgPipesModule} from 'ngx-pipes';
@@ -11,6 +11,7 @@ import { RentalListItemComponent } from '../rental/rental-list-item/rental-list-
 import { RentalService } from "../rental/shared/rental.service";
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 import { UppercasePipe } from '../common/pipes/uppercase.pipe';
+import { MapModule } from '../common/map/map.module';
 
 const routes: Routes = [
   { path: 'rentals',
@@ -28,7 +29,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     HttpClientModule,
-    NgPipesModule
+    NgPipesModule,
+    MapModule
   ],
   providers : [RentalService]
 })

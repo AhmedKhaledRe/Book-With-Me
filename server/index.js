@@ -1,11 +1,12 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const config = require('./config/dev');
-const Rental = require('./models/rental');
-const FakeDb = require('./fake-db');
-const app = express();
+const express = require('express'),
+    mongoose = require('mongoose'),
+    config = require('./config/dev'),
+    Rental = require('./models/rental'),
+    FakeDb = require('./fake-db'),
+    app = express();
 
-const rentalRoutes = require('./routes/rentals');
+const rentalRoutes = require('./routes/rentals'),
+    userRoutes = require('./routes/users');
 
 /*mongoose
     .connect(config.DB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
@@ -41,6 +42,7 @@ mongoose
 });*/
 
 app.use('/api/v1/rentals', rentalRoutes);
+app.use('/api/v1/users', userRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, function() {

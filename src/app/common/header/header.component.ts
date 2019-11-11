@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from '../../auth/shared/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-header',
@@ -6,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent implements OnInit {
-  constructor() { }
+export class HeaderComponent {
 
-  ngOnInit() { }
+  constructor(public auth: AuthService,
+              private router: Router) {}
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
+  }
+
+  search(city: string) {
+    city ? this.router.navigate([`/rentals/${city}/homes`]) : this.router.navigate(['/rentals']);
+  }
 }

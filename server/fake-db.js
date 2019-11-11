@@ -14,12 +14,12 @@ class FakeDb {
     async cleanDb() {
         await User.deleteMany({});
         await Rental.deleteMany({});
-        //await Booking.remove({});
+        await Booking.deleteMany({});
     }
 
     pushDataToDb() {
         const user = new User(this.users[0]);
-        //const user2 = new User(this.users[1]);
+        const user2 = new User(this.users[1]);
 
         this.rentals.forEach((rental) => {
             const newRental = new Rental(rental);
@@ -30,7 +30,7 @@ class FakeDb {
         });
 
         user.save();
-        //user2.save();
+        user2.save();
     }
 
     async seedDb() {

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgPipesModule} from 'ngx-pipes';
 import { Daterangepicker } from 'ng2-daterangepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RentalComponent } from '../rental/rental.component';
 import { RentalListComponent } from '../rental/rental-list/rental-list.component';
@@ -16,6 +17,8 @@ import { MapModule } from '../common/map/map.module';
 
 import { AuthGuard } from '../auth/shared/auth.guard';
 import { RentalDetailBookingComponent } from './rental-detail/rental-detail-booking/rental-detail-booking.component';
+import { HelperService } from '../common/service/helper.service';
+import { BookingService } from '../booking/shared/booking.service';
 
 const routes: Routes = [
   { path: 'rentals',
@@ -35,9 +38,11 @@ const routes: Routes = [
     HttpClientModule,
     NgPipesModule,
     MapModule,
-    Daterangepicker
+    Daterangepicker,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers : [RentalService]
+  providers : [RentalService,HelperService,BookingService]
 })
 
 export class RentalModule {}

@@ -11,30 +11,28 @@ import { RentalComponent } from './rental/rental.component';
 
 import { RentalModule } from './rental/rental.module';
 import { AuthModule } from './auth/auth.module';
-import { MapModule } from './common/map/map.module';
-import { CommonModule } from '@angular/common';
-//import { ManageModule } from './manage/manage.module';
+import { ManageModule } from './manage/manage.module';
 //import { UserModule } from './user/user.module';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/rentals' ,pathMatch: 'full'}
-];
-
-export class FeatureRoutingModule {}
+  {path: '', redirectTo: '/rentals', pathMatch: 'full'}
+]
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule,
     RouterModule.forRoot(routes),
+    BrowserModule,
     RentalModule,
     AuthModule,
-    CommonModule,
-    MapModule,
+    NgbModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ManageModule,
+    //UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

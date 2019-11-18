@@ -18,7 +18,7 @@ import * as moment from 'moment';
 export class RentalDetailBookingComponent implements OnInit {
   @Input() rental: Rental;
 
-  @ViewChild(DaterangePickerComponent,{ static: false })
+  @ViewChild(DaterangePickerComponent,{ static: true })
     private picker: DaterangePickerComponent;
 
   newBooking: Booking;

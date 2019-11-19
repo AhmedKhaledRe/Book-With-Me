@@ -1,10 +1,10 @@
-const express = require('express'),
-    mongoose = require('mongoose'),
-    config = require('./config/dev'),
-    Rental = require('./models/rental'),
-    FakeDb = require('./fake-db'),
-    app = express(),
-    bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const config = require('./config');
+const FakeDb = require('./fake-db');
+const path = require('path');
 
 const rentalRoutes = require('./routes/rentals'),
     userRoutes = require('./routes/users'),
@@ -23,13 +23,22 @@ const rentalRoutes = require('./routes/rentals'),
 mongoose
     .connect(config.DB_URI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
     .then(() => {
+        // if (process.env.NODE_ENV !== 'production') {
         const fakeDb = new FakeDb();
         //fakeDb.seedDb();
+        // }
         console.log("Connection succed!");
     })
     .catch(() => {
         console.log("Connection failed!");
     });
+
+/*mongoose.connect(config.DB_URI).then(() => {
+  // if (process.env.NODE_ENV !== 'production') {
+    const fakeDb = new FakeDb();
+    fakeDb.seedDb();
+  // }
+});*/
 
 
 /*app.use((req, res, next) => {
@@ -45,12 +54,20 @@ mongoose
     next();
 });*/
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/api/v1/rentals', rentalRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/bookings', bookingRoutes);
+
+if (process.env.NODE_ENV === 'production') {
+    const appPath = path.join(__dirname, '..', 'dist');
+    app.use(express.static(appPath));
+
+    app.get('*', function(req, res) {
+        res.sendFile(path.resolve(appPath, 'index.html'));
+    });
+}
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, function() {

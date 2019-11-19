@@ -1,7 +1,7 @@
 <div class="booking">
     <h3 class="booking-price">${{rental.dailyRate}} <span class="booking-per-night">per night</span></h3>
     <hr>
-    <ng-container *ngIf="auth.isAuthenticated()">
+    <ng-container *ngIf="auth?.isAuthenticated()">
         <form #bookingForm="ngForm">
             <label>Dates</label>
             <input type="text" class="form-control daterangepicker-input" name="daterangeInput" daterangepicker [options]="options" (selected)="selectedDate($event, daterange)" />
@@ -10,10 +10,10 @@
                 <input [(ngModel)]="newBooking.guests" name="guests" type="number" class="form-control" id="guests" aria-describedby="emailHelp" required>
             </div>
         </form>
-        <button (click)="openConfirmModal(content)" [disabled]="!bookingForm.form.valid || !newBooking.startAt || !newBooking.startAt" class="btn btn-danger btn-confirm btn-block">Reserve place now</button>
+        <button (click)="openConfirmModal(content)" [disabled]="!bookingForm?.form.valid || !newBooking?.startAt || !newBooking?.startAt" class="btn btn-danger btn-confirm btn-block">Reserve place now</button>
         <hr>
     </ng-container>
-    <div *ngIf="!auth.isAuthenticated()" class="should-login">
+    <div *ngIf="!auth?.isAuthenticated()" class="should-login">
         <a class="btn btn-bwm" routerLink="/login">Login and book this place today</a>
     </div>
     <p class="booking-note-title">People are interested into this house</p>
@@ -28,7 +28,7 @@
         <h4 class="modal-title">Confirm Booking
             <p>{{newBooking.startAt}} to {{newBooking.endAt}}</p>
         </h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <button type="button" class="close" aria-label="Close" (click)="modal?.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
     </div>
@@ -41,13 +41,13 @@
 
         <p>Do you confirm booking for selected days?</p>
     </div>
-    <div *ngIf="errors.length > 0" class="alert alert-danger modal-error">
+    <div *ngIf="errors?.length > 0" class="alert alert-danger modal-error">
         <p *ngFor="let error of errors">
-            {{error.detail}}
+            {{error?.detail}}
         </p>
     </div>
     <div class="modal-footer">
-        <button [disabled]="!newBooking.paymentToken" type="button" class="btn btn-bwm" (click)="createBooking()">Confirm</button>
-        <button type="button" class="btn btn-bwm" (click)="modal.close('Close click')">Close</button>
+        <button [disabled]="!newBooking?.paymentToken" type="button" class="btn btn-bwm" (click)="createBooking()">Confirm</button>
+        <button type="button" class="btn btn-bwm" (click)="modal?.close('Close click')">Close</button>
     </div>
 </ng-template>

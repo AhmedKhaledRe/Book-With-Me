@@ -8,9 +8,9 @@ import { Booking } from '../../booking/shared/booking.model';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-manage-booking',
+  selector: 'bwm-manage-booking',
   templateUrl: './manage-booking.component.html',
-  styleUrls: ['./manage-booking.component.css']
+  styleUrls: ['./manage-booking.component.scss']
 })
 export class ManageBookingComponent implements OnInit {
 
@@ -18,7 +18,8 @@ export class ManageBookingComponent implements OnInit {
   payments: any[];
 
   constructor(private bookingService: BookingService,
-              /*private paymentService: PaymentService*/) { }
+              //private paymentService: PaymentService
+              ) { }
 
   ngOnInit() {
     this.bookingService.getUserBookings().subscribe(
@@ -48,9 +49,9 @@ export class ManageBookingComponent implements OnInit {
         payment.status = 'paid';
       },
       err => {})
-  }*/
+  }
 
-  /*declinePayment(payment) {
+  declinePayment(payment) {
     this.paymentService.declinePayment(payment).subscribe(
       (json) => {
         payment.status = 'declined';
@@ -70,4 +71,3 @@ export class ManageBookingComponent implements OnInit {
     this.bookings[bookingIndex]['review'] = review;
   }*/
 }
-

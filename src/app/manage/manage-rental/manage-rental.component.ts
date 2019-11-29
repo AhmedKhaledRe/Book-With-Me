@@ -11,33 +11,33 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ManageRentalComponent implements OnInit {
 
-    rentals: Rental[];
-    rentalDeleteIndex: number;
+  rentals: Rental[];
+  rentalDeleteIndex: number;
 
-    constructor(private rentalService: RentalService,
-                private toastr: ToastrService) {
-    }
-
-    ngOnInit() {
-      this.rentalService.getUserRentals().subscribe(
-        (rentals: Rental[]) => {
-          this.rentals = rentals;
-        },
-        () => {
-
-        })
-    }
-
-
-    deleteRental(rentalId: string) {
-      this.rentalService.deleteRental(rentalId).subscribe(
-        () => {
-          this.rentals.splice(this.rentalDeleteIndex, 1);
-          this.rentalDeleteIndex = undefined;
-        },
-        (errorResponse: HttpErrorResponse) => {
-          this.toastr.error(errorResponse.error.errors[0].detail, 'Failed!');
-        })
-    }
-
+  constructor(private rentalService: RentalService,
+              private toastr: ToastrService) {
   }
+
+  ngOnInit() {
+    this.rentalService.getUserRentals().subscribe(
+      (rentals: Rental[]) => {
+        this.rentals = rentals;
+      },
+      () => {
+
+      })
+  }
+
+
+  deleteRental(rentalId: string) {
+    this.rentalService.deleteRental(rentalId).subscribe(
+      () => {
+        this.rentals.splice(this.rentalDeleteIndex, 1);
+        this.rentalDeleteIndex = undefined;
+      },
+      (errorResponse: HttpErrorResponse) => {
+        this.toastr.error(errorResponse.error.errors[0].detail, 'Failed!');
+      })
+  }
+
+}

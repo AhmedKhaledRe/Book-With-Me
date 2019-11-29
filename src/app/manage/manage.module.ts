@@ -31,7 +31,8 @@ const routes: Routes = [
     ManageBookingComponent,
     ManageRentalComponent,
     FormatDatePipe,
-    ManageRentalBookingComponent  ],
+    ManageRentalBookingComponent
+  ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,

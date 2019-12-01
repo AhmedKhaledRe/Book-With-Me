@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ImageUploadService } from './image-upload.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -13,7 +13,7 @@ class FileSnippet {
 }
 
 @Component({
-  selector: 'bwm-image-upload',
+  selector: 'app-image-upload',
   templateUrl: './image-upload.component.html',
   styleUrls: ['./image-upload.component.scss']
 })

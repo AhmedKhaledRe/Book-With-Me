@@ -7,9 +7,11 @@
     },
     "scripts": {
         "ng": "ng",
-        "start": "npm run start --prefix server",
+        "start": "node server/index.js",
+        "startlocal": "npm run start --prefix server",
         "start-dev": "ng serve --proxy-config proxy.conf.json",
-        "heroku-postbuild": "npm run build",
+        "postinstall": "ng build --aot --prod",
+        "heroku-postbuild": "ng build --prod",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
@@ -36,6 +38,7 @@
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
         "bootstrap": "^4.3.1",
+        "enhanced-resolve": "^4.1.1",
         "express": "^4.17.1",
         "font-awesome": "^4.7.0",
         "jquery": "^3.4.1",
@@ -54,7 +57,6 @@
         "nodemon": "^1.19.4",
         "popper": "^1.0.1",
         "rxjs": "~6.4.0",
-        "rxjs-compat": "^6.5.3",
         "stripe": "^7.13.0",
         "tslib": "^1.10.0",
         "zone.js": "~0.9.1"
@@ -77,6 +79,7 @@
         "karma-jasmine": "~2.0.1",
         "karma-jasmine-html-reporter": "^1.4.0",
         "protractor": "~5.4.0",
+        "rxjs-compat": "^6.5.3",
         "ts-node": "~7.0.0",
         "tslint": "~5.15.0",
         "typescript": "~3.5.3"

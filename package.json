@@ -10,6 +10,7 @@
         "start": "node server/index.js",
         "startlocal": "npm run start --prefix server",
         "start-dev": "ng serve --proxy-config proxy.conf.json",
+        "postinstall": "ng build --aot --prod",
         "heroku-postbuild": "ng build --prod",
         "build": "ng build",
         "test": "ng test",

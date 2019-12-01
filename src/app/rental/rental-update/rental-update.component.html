@@ -23,11 +23,6 @@
                         <app-editable-select [(entity)]="rental" [field]="'category'" [options]="rentalCategories" [className]="'rental-category'" (entityUpdated)="updateRental(rental._id, $event)">
                         </app-editable-select>
                     </h2>
-                    <div class="rental-owner">
-                        <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="">
-                        <span>{{!!rental.user.username}}</span>
-                    </div>
-
                     <app-editable-input [(entity)]="rental" [field]="'title'" [className]="'rental-title'" (entityUpdated)="updateRental(rental._id, $event)">
                     </app-editable-input>
 

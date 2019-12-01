@@ -8,9 +8,9 @@ import { Booking } from '../../booking/shared/booking.model';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'bwm-manage-booking',
+  selector: 'app-manage-booking',
   templateUrl: './manage-booking.component.html',
-  styleUrls: ['./manage-booking.component.scss']
+  styleUrls: ['./manage-booking.component.css']
 })
 export class ManageBookingComponent implements OnInit {
 

@@ -8,7 +8,11 @@ const path = require('path');
 
 const rentalRoutes = require('./routes/rentals'),
     userRoutes = require('./routes/users'),
-    bookingRoutes = require('./routes/bookings');
+    bookingRoutes = require('./routes/bookings'),
+    imageUploadRoutes = require('./routes/image-upload'),
+    paymentRoutes = require('./routes/payments'),
+    reviewRoutes = require('./routes/reviews');
+
 
 
 /*mongoose
@@ -59,6 +63,9 @@ app.use(bodyParser.json());
 app.use('/api/v1/rentals', rentalRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/bookings', bookingRoutes);
+app.use('/api/v1', imageUploadRoutes);
+app.use('/api/v1/payments', paymentRoutes);
+app.use('/api/v1/reviews', reviewRoutes);
 
 if (process.env.NODE_ENV === 'production') {
     const appPath = path.join(__dirname, '..', 'dist');

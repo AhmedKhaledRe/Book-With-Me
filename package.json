@@ -7,7 +7,8 @@
     },
     "scripts": {
         "ng": "ng",
-        "start": "npm run start --prefix server",
+        "start": "node server/index.js",
+        "startlocal": "npm run start --prefix server",
         "start-dev": "ng serve --proxy-config proxy.conf.json",
         "postinstall": "ng build --aot --prod",
         "heroku-postbuild": "ng build --prod",
@@ -37,6 +38,7 @@
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
         "bootstrap": "^4.3.1",
+        "enhanced-resolve": "^4.1.1",
         "express": "^4.17.1",
         "font-awesome": "^4.7.0",
         "jquery": "^3.4.1",

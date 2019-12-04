@@ -38,6 +38,7 @@
         <p>Guests: <em>{{newBooking.guests}}</em></p>
         <p>Price: <em>{{newBooking.totalPrice}}$</em></p>
 
+        <app-payment (paymentConfirmed)='onPaymentConfirmed($event)'> </app-payment>
 
         <p>Do you confirm booking for selected days?</p>
     </div>
@@ -47,7 +48,7 @@
         </p>
     </div>
     <div class="modal-footer">
-        <button [disabled]="!newBooking?.paymentToken" type="button" class="btn btn-bwm" (click)="createBooking()">Confirm</button>
+        <button [disabled]="!newBooking.paymentToken" type="button" class="btn btn-bwm" (click)="createBooking()">Confirm</button>
         <button type="button" class="btn btn-bwm" (click)="modal?.close('Close click')">Close</button>
     </div>
 </ng-template>

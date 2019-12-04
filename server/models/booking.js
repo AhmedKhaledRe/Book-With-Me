@@ -11,15 +11,14 @@ const bookingSchema = new Schema({
     //Booking can relate to only one User and one Rental
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     rental: { type: Schema.Types.ObjectId, ref: 'Rental' },
-    //review: { type: Schema.Types.ObjectId, ref: 'Review'}
 });
 
 //Sending the model to database
 module.exports = mongoose.model('Booking', bookingSchema);
 
 
-// bookingSchema.pre('remove', function(next) {
-//    this.model('User').update({'_id': this.user}, {$pull: {bookings: this._id}}, () => {
-//       next();
-//    })
-// })
+bookingSchema.pre('remove', function(next) {
+    this.model('User').update({ '_id': this.user }, { $pull: { bookings: this._id } }, () => {
+        next();
+    });
+});

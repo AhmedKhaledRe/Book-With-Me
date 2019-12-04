@@ -34,15 +34,15 @@
 
                     <div class="rental-room-info">
                         <span><i class="fa fa-building"></i>
-              <app-editable-input
-                [(entity)]="rental"
-                [field]="'bedrooms'"
-                [type]="'number'"
-                [style]="{'display': 'inline-block'}"
-                [className]="'rental-bedrooms'"
-                (entityUpdated)="updateRental(rental._id, $event)">
-              </app-editable-input> bedrooms
-            </span>
+            <app-editable-input
+              [(entity)]="rental"
+              [field]="'bedrooms'"
+              [type]="'number'"
+              [style]="{'display': 'inline-block'}"
+              [className]="'rental-bedrooms'"
+              (entityUpdated)="updateRental(rental._id, $event)">
+            </app-editable-input> bedrooms
+          </span>
                         <span><i class="fa fa-user"></i>  {{countBedroomAssets(4)}} guests</span>
                         <span><i class="fa fa-bed"></i> {{countBedroomAssets(2)}} beds</span>
                     </div>

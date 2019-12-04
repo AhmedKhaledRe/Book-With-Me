@@ -1,11 +1,11 @@
-<section id="rentalDetails" *ngIf="!!rental">
+<section id="rentalDetails" *ngIf="rental">
     <div class="upper-section">
         <div class="row">
             <div class="col-md-6">
                 <img src="{{rental.image}}" alt="">
             </div>
             <div class="col-md-6">
-                <app-map [location]="rental.city + ' ' + rental.street"></app-map>
+                <app-map [location]="rental.city + ', ' + rental.street"> </app-map>
             </div>
         </div>
     </div>
@@ -44,7 +44,8 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <app-rental-detail-booking [rental]="rental"> </app-rental-detail-booking>
+                <app-rental-detail-booking [rental]="rental">
+                </app-rental-detail-booking>
             </div>
         </div>
     </div>

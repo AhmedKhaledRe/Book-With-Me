@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { BookingService } from '../../booking/shared/booking.service';
-//import { PaymentService } from '../../payment/shared/payment.service';
+import { PaymentService } from '../../payment/shared/payment.service';
 
 import { Booking } from '../../booking/shared/booking.model';
-//import { Review } from '../../review/shared/review.model';
 
 import * as moment from 'moment';
 
 @Component({
   selector: 'app-manage-booking',
   templateUrl: './manage-booking.component.html',
-  styleUrls: ['./manage-booking.component.css']
+  styleUrls: ['./manage-booking.component.scss']
 })
 export class ManageBookingComponent implements OnInit {
 
@@ -18,7 +17,7 @@ export class ManageBookingComponent implements OnInit {
   payments: any[];
 
   constructor(private bookingService: BookingService,
-              //private paymentService: PaymentService
+              private paymentService: PaymentService
               ) { }
 
   ngOnInit() {
@@ -30,10 +29,10 @@ export class ManageBookingComponent implements OnInit {
 
       })
 
-    //this.getPendingPayments();
+    this.getPendingPayments();
   }
 
-  /*getPendingPayments() {
+  getPendingPayments() {
     this.paymentService.getPendingPayments().subscribe(
       (payments: any) => {
         this.payments = payments;
@@ -41,9 +40,9 @@ export class ManageBookingComponent implements OnInit {
       () => {
 
       })
-  }*/
+  }
 
-  /*acceptPayment(payment) {
+  acceptPayment(payment) {
     this.paymentService.acceptPayment(payment).subscribe(
       (json) => {
         payment.status = 'paid';
@@ -57,7 +56,7 @@ export class ManageBookingComponent implements OnInit {
         payment.status = 'declined';
       },
       err => {})
-  }*/
+  }
 
   isExpired(endAtText: string) {
     const timeNow = moment();
@@ -66,8 +65,4 @@ export class ManageBookingComponent implements OnInit {
     return endAt.isBefore(timeNow);
   }
 
-  /*reviewPublished(bookingIndex: number, review: Review) {
-    debugger;
-    this.bookings[bookingIndex]['review'] = review;
-  }*/
 }

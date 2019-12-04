@@ -13,7 +13,7 @@ import * as moment from 'moment';
   encapsulation: ViewEncapsulation.None,
   selector: 'app-rental-detail-booking',
   templateUrl: './rental-detail-booking.component.html',
-  styleUrls: ['./rental-detail-booking.component.css']
+  styleUrls: ['./rental-detail-booking.component.scss']
 })
 export class RentalDetailBookingComponent implements OnInit {
   @Input() rental: Rental;

@@ -7,12 +7,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
-
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
 import { TokenInterceptor } from './shared/token.interceptor';
-import { AuthComponent } from './auth.component';
-
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -22,7 +19,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,AuthComponent
+    RegisterComponent
   ],
   imports: [
     RouterModule.forChild(routes),

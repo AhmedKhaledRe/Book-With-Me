@@ -8,7 +8,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-rental-search',
   templateUrl: './rental-search.component.html',
-  styleUrls: ['./rental-search.component.css']
+  styleUrls: ['./rental-search.component.scss']
 })
 export class RentalSearchComponent implements OnInit {
 

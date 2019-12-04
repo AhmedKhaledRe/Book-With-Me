@@ -4,7 +4,7 @@ import { EditableComponent } from '../editable-component';
 @Component({
   selector: 'app-editable-image',
   templateUrl: './editable-image.component.html',
-  styleUrls: ['./editable-image.component.css']
+  styleUrls: ['./editable-image.component.scss']
 })
 export class EditableImageComponent extends EditableComponent {
 

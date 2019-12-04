@@ -6,10 +6,8 @@ import { NgPipesModule, UcWordsPipe } from 'ngx-pipes';
 import { MapModule } from '../common/map/map.module';
 import { Daterangepicker } from 'ng2-daterangepicker';
 import { FormsModule } from '@angular/forms';
-import { EditableModule } from '../common/component/editable/editable.module';
-import { ImageUploadModule } from '../common/component/image-upload/image-upload.module';
-//import { PaymentModule } from '../payment/payment.module';
-//import { StarRatingModule } from 'angular-star-rating';
+import { PaymentModule } from '../payment/payment.module';
+import { StarRatingModule } from 'angular-star-rating';
 
 import { RentalListComponent } from './rental-list/rental-list.component';
 import { RentalListItemComponent } from './rental-list-item/rental-list-item.component';
@@ -27,6 +25,8 @@ import { AuthGuard } from '../auth/shared/auth.guard';
 import { RentalGuard } from './shared/rental.guard';
 import { RentalCreateComponent } from './rental-create/rental-create.component';
 import { RentalUpdateComponent } from './rental-update/rental-update.component';
+import { EditableModule } from '../common/component/editable/editable.module';
+import { ImageUploadModule } from '../common/component/image-upload/image-upload.module';
 
 const routes: Routes = [
   { path: 'rentals',
@@ -61,10 +61,10 @@ const routes: Routes = [
     MapModule,
     Daterangepicker,
     FormsModule,
-    ImageUploadModule,
     EditableModule,
-    //PaymentModule,
-    //StarRatingModule.forChild()
+    ImageUploadModule,
+    PaymentModule,
+    StarRatingModule.forChild()
   ],
   providers: [
     RentalService,

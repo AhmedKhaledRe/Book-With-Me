@@ -18,9 +18,6 @@
                     </div>
                     <div class="card-footer text-muted">
                         Created {{booking.createdAt | formatDate}}
-
-
-
                     </div>
                 </div>
             </div>
@@ -56,7 +53,10 @@
                     <div class="card-footer text-muted">
                         Created {{payment.booking.createdAt | formatDate}}
 
-
+                        <div *ngIf="payment.status === 'pending'">
+                            <button class='btn btn-success' (click)="acceptPayment(payment)">Confirm</button>
+                            <button class='btn btn-danger' (click)="declinePayment(payment)">Decline</button>
+                        </div>
 
                     </div>
                 </div>

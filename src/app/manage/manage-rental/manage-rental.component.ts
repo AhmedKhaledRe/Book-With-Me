@@ -7,7 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-manage-rental',
   templateUrl: './manage-rental.component.html',
-  styleUrls: ['./manage-rental.component.css']
+  styleUrls: ['./manage-rental.component.scss']
 })
 export class ManageRentalComponent implements OnInit {
 

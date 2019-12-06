@@ -5,4 +5,4 @@ interface NodeModule {
 }
 
 
-declare var Stripe: any;
+//declare var Stripe: any;

@@ -66,7 +66,7 @@ app.use('/api/v1', imageUploadRoutes);
 app.use('/api/v1/payments', paymentRoutes);
 
 if (process.env.NODE_ENV === 'production') {
-    const appPath = path.join(__dirname, '..', 'dist');
+    const appPath = path.join(__dirname, 'project-product');
     app.use(express.static(appPath));
 
     app.get('*', function(req, res) {

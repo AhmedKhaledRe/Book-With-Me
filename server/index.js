@@ -73,7 +73,13 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(appPath, 'index.html'));
     });
 }
-
+/////////////////////////////////////////////////////////////////
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/", express.static(path.join(__dirname, "server")));
+app.use((req, res, next) => {
+    res.sendFile(path.join(__dirname, "server", "index.html"));
+});
+//////////////////////////////////////////////////////////////////
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, function() {
     console.log("Server is Running");

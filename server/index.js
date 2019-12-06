@@ -75,9 +75,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 /////////////////////////////////////////////////////////////////
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/", express.static(path.join(__dirname, "server")));
+app.use("/", express.static(path.join(__dirname, "project-product")));
 app.use((req, res, next) => {
-    res.sendFile(path.join(__dirname, "server", "index.html"));
+    res.sendFile(path.join(__dirname, "project-product", "index.html"));
 });
 //////////////////////////////////////////////////////////////////
 const PORT = process.env.PORT || 3001;
